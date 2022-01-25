@@ -2,8 +2,7 @@
 import './App.css';
 import Header from './component/Header'
 import BottomNavbar from './component/BottomNavigation'
-import {BrowserRouter} from 'react-router-dom'
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import Trending from './Pages/Trending/Trending'
 import Movies from './Pages/Movies/Movies'
 import Search from './Pages/Search/Search'

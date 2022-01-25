@@ -1,3 +1,4 @@
+import { useEffect} from 'react'
 import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import TvRoundedIcon from '@mui/icons-material/TvRounded';
@@ -5,7 +6,9 @@ import WhatshotRoundedIcon from '@mui/icons-material/WhatshotRounded';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Box from '@mui/material/Box';
+import { useNavigate  } from "react-router-dom"
 import { makeStyles } from '@mui/styles';
+
 import * as React from 'react';
 const useStyles = makeStyles({
     root:{
@@ -21,7 +24,20 @@ const useStyles = makeStyles({
     }
 })
 export default function BottomNavbar() {
+  const navigate = useNavigate()
   const [value, setValue] = React.useState(0);
+  useEffect(()=>{
+if(value === 0){
+navigate('/')
+}else if(value === 1){
+  navigate('/movies')
+}else if(value === 2){
+  navigate('/series')
+}else if(value === 3){
+  navigate('/search')
+}
+
+  },[value,navigate])
 const classes = useStyles()
   return (
     <Box  >

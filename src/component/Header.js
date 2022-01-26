@@ -17,8 +17,8 @@ export default function Header() {
     const classes = useStyles();
 
   return (
-    <Box sx={{ flexGrow: 1 }} >
-      <AppBar position="static" className={classes.root}>
+    <Box sx={{ flexGrow: 1 }} mt={6}>
+      <AppBar position="fixed" className={classes.root}>
         <Toolbar>
           <IconButton
             size="large"

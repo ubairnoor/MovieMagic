@@ -2,21 +2,24 @@ import { Box, Container, Grid, Typography } from '@material-ui/core';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import SingleContent from  '../../component/SingleContent'
+import CustomPagination from '../../component/Pagination/CustomPagination'
 const Trending = ()=>{
     const [content , setContent] = useState([])
+    const [page, setPage] = useState(1)
    const fetchTrending =  async()=>{
        const { data } = await axios.get(
-        `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.React_app_api_key}`
+        `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.React_app_api_key}&page=${page}`
        )
-       console.log(data.results)
+    
       setContent(data.results)
     }
     useEffect(()=>{
 fetchTrending();
-    },[])
+    },[page])
     return (
-    <Box mb={2}>
-           <Container maxWidth="md" >
+  
+            <Box alignItems="center" mb={7}>
+           <Container maxWidth="lg" >
            <Grid container>
                     <Box mt>
                         <Grid item>
@@ -42,9 +45,17 @@ fetchTrending();
                  poster={content.backdrop_path}
                 />)}
                 <SingleContent/>
+                
                 </Grid>
+                
        </Container>
+       <CustomPagination setPage={setPage}/>
+       
     </Box>
+     
+      
+
+    
     )
 }
 export default Trending

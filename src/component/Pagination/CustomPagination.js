@@ -1,6 +1,5 @@
 import Pagination from '@mui/material/Pagination';
-import { makeStyles} from '@mui/styles';
-import {Container} from'@material-ui/core';
+import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
     ul: {
         "& .MuiPaginationItem-root": {
@@ -19,7 +18,11 @@ const CustomPagination = ({setPage,numOfPages=10}) =>{
     const classes = useStyles()
     return (
        
-<Container mt={10}>
+<div  style={{ width:"100%",
+display:"flex",
+justifyContent:"center",
+marginTop:10,
+marginBottom:2}}>
 <Pagination
  variant="outlined" 
   padding={10} margin={5}  
@@ -28,7 +31,7 @@ const CustomPagination = ({setPage,numOfPages=10}) =>{
   hideNextButton hidePrevButton  
   count={numOfPages} 
   onChange={(e)=>handlePageChange(e.target.textContent)} />
-</Container>
+</div>
 
 
     )

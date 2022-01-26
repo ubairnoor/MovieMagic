@@ -1,8 +1,8 @@
-import {useState,useEffect} from 'react'
-import axios from "axios";
 import { Box, Container, Grid, Typography } from '@material-ui/core';
-import SingleContent from  '../../component/SingleContent'
-import CustomPagination from '../../component/Pagination/CustomPagination'
+import axios from "axios";
+import { useEffect, useState } from 'react';
+import CustomPagination from '../../component/Pagination/CustomPagination';
+import SingleContent from '../../component/SingleContent';
 const Movies = ()=>{
 const [page,setPage] = useState(1)
 const [content, setContent] = useState([])
@@ -18,10 +18,9 @@ const[numOfPages,setNumOfPages] = useState([])
         console.log(numOfPages)
     }
     useEffect(() => {
-     fetchMovies()
+     fetchMovies();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page])
-
-
     return (
         <Box alignItems="center" mb={8}>
         <Container maxWidth="lg" >
@@ -54,10 +53,10 @@ const[numOfPages,setNumOfPages] = useState([])
              </Grid>
              
     </Container>
-    {numOfPages > 1 &&(
+   
  <CustomPagination setPage={setPage} numOfPages={numOfPages}/>
     
-    )}
+  
    
  </Box>
     )

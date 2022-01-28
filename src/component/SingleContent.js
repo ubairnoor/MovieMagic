@@ -29,7 +29,6 @@ const SingleContent = ({id,media,title,path,vote,date,poster}) =>{
                                             title="Date">
                                         <Typography component="subtitle1" variant="subtitle1"> {date}</Typography>
                                         </Tooltip>
-                                        
                                         <Badge  badgeContent={vote} color={vote>7?'error':'info'} variant='standard' overlap='rectangular' ></Badge>
                            </Grid>
                        </CardActions>

@@ -7,13 +7,15 @@ const SingleContent = ({id,media,title,path,vote,date,poster}) =>{
     let unavailable = img_300
     return (
        
-               <Grid item  md={4} sm={6} xs={12} lg={4} direction="row" justifyContent="space-between">
+               <Grid item md={ 4 } sm={ 6 } xs={ 12 } lg={ 3 } direction="row" justifyContent="space-between">
                    <Card>
                        <CardActionArea>
-                           <CardMedia component="img" image={`${poster}`?`${img_300}/${poster}`:`${unavailable}`} />
-                       <CardContent>
-                           <Typography noWrap="true" component="h4" variant="h4" align="center"  > {title}</Typography>
-                       </CardContent>
+                           <CardMedia component="img"
+                                      image={ `${ poster }` ? `${ img_300 }/${ poster }` : `${ unavailable }` }/>
+                           <CardContent>
+                               <Typography noWrap="true" component="h4" variant="h4"
+                                           align="center"> { title }</Typography>
+                           </CardContent>
                        </CardActionArea>
                        <Divider/>
                        <CardActions>

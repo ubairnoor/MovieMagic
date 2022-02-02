@@ -3,9 +3,9 @@ import { useEffect } from 'react'
 import Chip from '@mui/material/Chip';
 
 const Genres = ( { selectedGeners , setSelectedGeners , genres , setGenres , type , setPage } ) => {
-    //When ever we go select particular genre we make a another array.we will display itself
-    // we will add handle add and handle remove
-    // add selected genre ist (...selectedGeners ) and  then we add that has been sent to us (genre)
+    /*When ever we go select particular genre we make a another array.we will display itself*/
+    /* we will add handle add and handle remove*/
+    /* add selected genre ist (...selectedGeners ) and  then we add that has been sent to us (genre)*/
     const handleAdd = ( genre ) => {
         console.log ( "selected genre:" , genre )
         setSelectedGeners ( [...selectedGeners , genre] );
@@ -30,12 +30,15 @@ const Genres = ( { selectedGeners , setSelectedGeners , genres , setGenres , typ
     console.log ( genres )
 
     useEffect ( () => {
+
         fetchGenres ();
-//when ever we want chang e the page we want genres  unmouted means it should cancel the api key call
+        /*when ever we want chang e the page we want genres  unmouted means it should cancel the api key call*/
+
         return () => {
+
             setGenres ( {} );
         }
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
     } , [] )
     return <div style={ { padding : "6px" } }>
         {/* we will display selected genres here */ }
